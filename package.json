@@ -4,7 +4,8 @@
   "private": true,
   "main": "web.js",
   "scripts": {
-    "start": "nodemon web.js"
+    "start-dev": "nodemon web.js",
+    "start": "npm run web.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
