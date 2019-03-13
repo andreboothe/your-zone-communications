@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
-const { email, password } = require('../config');
+const { email, password, recipient } = require('../config');
 
 /* Post email. */
 router.post('/', function(req, res, next) {
@@ -13,10 +13,10 @@ router.post('/', function(req, res, next) {
            pass: password
        }
    });
-  //  Please put your zone email in to section
+  
   const mailOptions = {
     from: email, // sender address
-    to: req.body.email, // list of receivers
+    to: recipient, // list of receivers
     subject: req.body.subject, // Subject line
     html: req.body.text// plain text body
   };
