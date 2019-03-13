@@ -5,7 +5,7 @@
   "main": "web.js",
   "scripts": {
     "start-dev": "nodemon web.js",
-    "start": "npm run web.js"
+    "start": "node web.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
