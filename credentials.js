@@ -1,0 +1,23 @@
+const dotenv = require('dotenv');
+dotenv.config();
+const {
+  GOOGLE_CALENDAR_CLIENT_ID, 
+  GOOGLE_CALENDAR_PROJECT_ID, 
+  GOOGLE_CALENDAR_AUTH_URI, 
+  GOOGLE_CALENDAR_TOKEN_URI, 
+  GOOGLE_CALENDAR_CERT_URL,
+  GOOGLE_CALENDAR_CLIENT_SECRET_KEY,
+  GOOGLE_CALENDAR_REDIRECT_URI1,
+  GOOGLE_CALENDAR_REDIRECT_URI2} = process.env;
+
+module.exports = {
+  "installed":{
+    "client_id":GOOGLE_CALENDAR_CLIENT_ID,
+    "project_id":GOOGLE_CALENDAR_PROJECT_ID,
+    "auth_uri":GOOGLE_CALENDAR_AUTH_URI,
+    "token_uri":GOOGLE_CALENDAR_TOKEN_URI,
+    "auth_provider_x509_cert_url":GOOGLE_CALENDAR_CERT_URL,
+    "client_secret":GOOGLE_CALENDAR_CLIENT_SECRET_KEY,
+    "redirect_uris":[GOOGLE_CALENDAR_REDIRECT_URI1,GOOGLE_CALENDAR_REDIRECT_URI2]
+  }
+};
