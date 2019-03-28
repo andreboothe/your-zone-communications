@@ -5,7 +5,8 @@ const readline = require('readline');
 const {google} = require('googleapis');
 
 const CREDENTIALS = require('../credentials');
-const {private_key} = require('../credentials.json');
+const CONFIG = require('../config');
+// const {private_key} = require('../credentials.json');
 
 
 
@@ -43,7 +44,7 @@ router.post('/getEvents', function(req, res, next) {
 
 router.post('/booking', function(req, res, next) {
   const {summary, location, description, start, end} = req.body;
-  const attendees =[{email:"boothe.andre@live.com"}];
+  const attendees =[{email: CONFIG.CLIENT_EMAIL}];
   const scopes = ['https://www.googleapis.com/auth/calendar', 'https://www.googleapis.com/auth/calendar.events'];
   const jwt = new google.auth.JWT({                                          
     email: CREDENTIALS.client_email,                                                    
