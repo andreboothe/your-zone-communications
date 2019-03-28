@@ -17,6 +17,7 @@
 
 #credentials
 credentials.json
+credentials3.json
 token.json
 # misc
 .DS_Store

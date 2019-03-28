@@ -28,7 +28,6 @@ router.post('/getEvents', function(req, res, next) {
     const calendar = google.calendar({version: 'v3', auth: jwt});
     calendar.events.list({
       calendarId: 'primary',
-      // timeMin: (new Date()).toISOString(),
       timeMin: timeMin,
       timeMax: timeMax,
       maxResults: 10000,
