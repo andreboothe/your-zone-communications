@@ -27,7 +27,7 @@ router.post('/getEvents', function(req, res, next) {
     
     const calendar = google.calendar({version: 'v3', auth: jwt});
     calendar.events.list({
-      calendarId: 'primary',
+      calendarId: CONFIG.email,
       timeMin: timeMin,
       timeMax: timeMax,
       maxResults: 10000,
@@ -43,7 +43,7 @@ router.post('/getEvents', function(req, res, next) {
 
 router.post('/booking', function(req, res, next) {
   const {summary, location, description, start, end} = req.body;
-  const attendees =[{email: CONFIG.CLIENT_EMAIL}];
+  const attendees =[{email: CONFIG.client_email}];
   const scopes = ['https://www.googleapis.com/auth/calendar', 'https://www.googleapis.com/auth/calendar.events'];
   const jwt = new google.auth.JWT({                                          
     email: CREDENTIALS.client_email,                                                    
@@ -81,11 +81,11 @@ router.post('/booking', function(req, res, next) {
     
     const calendar = google.calendar({version: 'v3', auth: jwt});
     calendar.events.insert({
-      calendarId: 'primary',
+      calendarId: CONFIG.email,
       sendNotifications: true,
       resource: event
     }, (err, response) => {
-      if (!response.data) return res.status(200).send('The API returned an error: ' + err);
+      if (!response.data) return res.status(404).send('The API returned an error: ' + err);
       // console.log(response.data)
       res.status(200).send(response.data);
     })
